@@ -1,0 +1,15 @@
+created:
+    - database/factories/AuthorSponsorFactory.php
+    - database/factories/OrdinanceFactory.php
+    - database/factories/ResolutionFactory.php
+    - database/migrations/2024_02_13_064111_create_author_sponsors_table.php
+    - database/migrations/2024_02_13_064112_create_ordinances_table.php
+    - database/migrations/2024_02_13_064113_create_resolutions_table.php
+    - app/Models/AuthorSponsor.php
+    - app/Models/Ordinance.php
+    - app/Models/Resolution.php
+models:
+    User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable', theme: 'string nullable default:default', theme_color: 'string nullable' }
+    AuthorSponsor: { name: 'string nullable', createdby: 'id unsigned biginteger foreign:users.id nullable onDelete:null', updatedby: 'id unsigned biginteger foreign:users.id nullable onDelete:null' }
+    Ordinance: { ord_date: 'date nullable', ord_no: 'string nullable', series: 'string nullable', subject: 'text nullable', author_id: 'id unsigned biginteger foreign:author_sponsors.id nullable', file: 'string nullable', createdby: 'id unsigned biginteger foreign:users.id nullable onDelete:null', updatedby: 'id unsigned biginteger foreign:users.id nullable onDelete:null' }
+    Resolution: { res_date: 'date nullable', res_no: 'string nullable', series: 'string nullable', subject: 'text nullable', author_id: 'id unsigned biginteger foreign:author_sponsors.id nullable', committee_in_charge: 'string nullable', file: 'string nullable', createdby: 'id unsigned biginteger foreign:users.id nullable onDelete:null', updatedby: 'id unsigned biginteger foreign:users.id nullable onDelete:null' }

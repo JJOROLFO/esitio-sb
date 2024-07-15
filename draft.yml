@@ -1,0 +1,33 @@
+models:
+
+    AuthorSponsor:
+        name: string nullable
+        createdby: id unsigned biginteger foreign:users.id nullable onDelete:null
+        updatedby: id unsigned biginteger foreign:users.id nullable onDelete:null
+
+    Ordinance:
+        ord_date: date nullable
+        ord_no: string nullable
+        series: string nullable
+        subject: text nullable
+        author_id: id unsigned biginteger foreign:author_sponsors.id nullable 
+        file: string nullable
+        createdby: id unsigned biginteger foreign:users.id nullable onDelete:null
+        updatedby: id unsigned biginteger foreign:users.id nullable onDelete:null
+
+    Resolution:
+        res_date: date nullable
+        res_no: string nullable
+        series: string nullable
+        subject: text nullable
+        author_id: id unsigned biginteger foreign:author_sponsors.id nullable
+        committee_in_charge: string nullable
+        file: string nullable
+        createdby: id unsigned biginteger foreign:users.id nullable onDelete:null
+        updatedby: id unsigned biginteger foreign:users.id nullable onDelete:null
+
+
+    
+    
+
+    
